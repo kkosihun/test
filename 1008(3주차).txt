@@ -1,0 +1,50 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdarg.h>
+
+int sum(int, ...);
+int main(void) {
+
+	int answer = sum(5, 1, 9, 3, 5, 4);
+	printf("합은 %d입니다.\n", answer);
+	return 0;
+}
+
+int sum(int num, ...) {
+
+	int answer = 0;
+	va_list argptr;
+	va_start(argptr, num );
+	for (; num > 0; num--)
+		answer += va_arg(argptr, int);
+	va_end (argptr);
+	return answer;
+}
+
+
+
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+long factorial(int n) {
+
+	printf("factorial(%d)\n", n);
+
+	if (n <= 1)
+		return 1;
+	else
+		return n * factorial(n - 1);
+}
+
+int main(void) {
+	
+	int n;
+	long f;
+
+	printf("정수를 입력하시오 : ");
+	scanf("%d", &n);
+	printf("%d!은  %d입니다. \n", n, factorial(n));
+
+	return 0;
+}
